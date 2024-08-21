@@ -48,7 +48,7 @@ def make_stack(dropout, graduated, enrolled):
         ]
     )
 
-    # Crear el gráfico de barras
+    
     chart = (
         alt.Chart(data)
         .mark_bar()
@@ -72,14 +72,14 @@ def make_stack(dropout, graduated, enrolled):
 
 
 def make_donut(dropout, graduated, enrolled):
-    # Definir colores para cada categoría
+   
     chart_colors = ["#ef4565", "#27AE60", "#3da9fc"]  # rojo, verde, azul
-    background_color = "#E0E0E0"  # Color gris para el fondo
+    background_color = "#E0E0E0" 
 
-    # Calcular el total de estudiantes
+    
     total_students = dropout + graduated + enrolled
 
-    # Crear el DataFrame con los valores
+   
     source = pd.DataFrame(
         {
             "Category": ["Dropout", "Graduated", "Enrolled"],
@@ -87,26 +87,26 @@ def make_donut(dropout, graduated, enrolled):
         }
     )
 
-    # DataFrame para el fondo
+ 
     source_bg = pd.DataFrame(
         {
             "Category": ["Total"],
-            "Value": [total_students],  # Valor total para la dona de fondo
+            "Value": [total_students], 
         }
     )
 
-    # Crear el gráfico de dona de fondo
+   
     plot_bg = (
         alt.Chart(source_bg)
         .mark_arc(innerRadius=0, outerRadius=104, cornerRadius=20)
         .encode(
             theta="Value:Q",
-            color=alt.value(background_color),  # Color fijo para el fondo
+            color=alt.value(background_color),
         )
         .properties(width=250, height=250)
     )
 
-    # Crear el gráfico de dona principal
+  
     plot = (
         alt.Chart(source)
         .mark_arc(radius=84, radius2=100, cornerRadius=15, padAngle=0.05)
@@ -124,7 +124,7 @@ def make_donut(dropout, graduated, enrolled):
         .properties(width=250, height=250)
     )
 
-    # Agregar el texto central
+   
     text = (
         alt.Chart(pd.DataFrame({"Total": [total_students], "Label": ["Students"]}))
         .mark_text(
@@ -134,12 +134,12 @@ def make_donut(dropout, graduated, enrolled):
         .properties(width=250, height=250)
     )
 
-    # Agregar el texto "Students" más pequeño
+  
     text_label = (
         alt.Chart(
             pd.DataFrame(
                 {
-                    "Total": [""],  # Texto vacío para centrar la etiqueta
+                    "Total": [""], 
                     "Label": ["Total de Estudiantes"],
                 }
             )
@@ -147,7 +147,7 @@ def make_donut(dropout, graduated, enrolled):
         .mark_text(
             align="center",
             baseline="middle",
-            dy=28,  # Desplazar hacia abajo
+            dy=28,
             font="sans-serif",
         )
         .encode(text="Label:N", size=alt.value(12))
@@ -159,11 +159,11 @@ def make_donut(dropout, graduated, enrolled):
 
 uploaded_file = st.file_uploader("Selecciona un Archivo", type="csv")
 if uploaded_file is not None:
-    # Leer el archivo CSV
+   
     df = pd.read_csv(uploaded_file)
 
-    # Seleccionar las características que utilizaste para entrenar el modelo
-    # Supongamos que estas son las columnas que utilizaste
+  
+ 
     X = df[
         [
             "Application mode",
@@ -197,10 +197,10 @@ if uploaded_file is not None:
         ]
     ]
 
-    # Realizar las predicciones
+
     predictions = model.predict(X)
 
-    # Añadir las predicciones al DataFrame
+
     df["Prediction"] = predictions
 
     df["Prediction Name"] = df["Prediction"].map(prediction_mapping)
@@ -294,4 +294,4 @@ if uploaded_file is not None:
     st.write("Información de Estudiantes:")
     st.dataframe(
         df[["Application mode", "Application order", "Previous qualification", "Admission grade", "Course Name", "Age at enrollment", "Prediction Name"]]
-    )  # Muestra columnas relevantes
+    ) 
