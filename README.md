@@ -96,21 +96,17 @@ pytest
 1. El proyecto ya tiene la imagen de Docker configurada en el `Dockerfile` para construirla utiliza el comando dentro de la carpeta del proyecto:
 
    ```sh
-   docker build -t pneumonia-app .
+   docker build -t streamlit .
    ```
 
-2. Ejecuta la imagen utilizando: (Para que ejecute correctamente se requiere tener un [Xserver](https://sourceforge.net/projects/vcxsrv/)
+2. Ejecuta la imagen utilizando:
 
    ```sh
-   docker run -it pneumonia-app
+   docker run -p 8501:8501 streamlit
    ```
-   Al momento de cargar imagenes se pueden utilizar las que se encuentran de ejemplo en el Proyecto en la ruta `home/src/images`
 
-3. También se pueden ejecutar las pruebas en el contenedor con:
+3. Ingresar al navegador utilizando el siguiente link http://localhost:8501
 
-   ```sh
-   docker run -it pneumonia-app pytest
-   ```
 
 ## 🤖 Acerca del Modelo
 
@@ -126,5 +122,4 @@ El Dataset se encuentra disponible en [UC Irvine Machine Learning Repository](ht
 
 ## 🧑‍💻 Proyecto original realizado por:
 
-Isabella Torres Revelo - https://github.com/isa-tr
-Nicolas Diaz Salazar - https://github.com/nicolasdiazsalazar
+Miguel Angel Sanabria - https://github.com/miguelangsanabria 
