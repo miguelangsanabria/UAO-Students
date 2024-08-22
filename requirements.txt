@@ -1,4 +1,5 @@
-streamlit
-pandas
-altair
-catboost
+streamlit==1.37.1
+pandas==2.2.2
+altair==5.0.1
+catboost==1.2.5
+pytest==8.3.2
