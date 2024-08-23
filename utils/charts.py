@@ -1,8 +1,19 @@
 import pandas as pd
 import altair as alt
 
+"""
+Modulo de Creación de Gráficas
+
+Este módulo proporciona funciones para generar visualizaciones gráficas usando Altair 
+para representar datos de estudiantes en riesgo de deserción, graduados y actualmente inscritos.
+"""
+
 
 def make_donut_chart(dropout, graduated, enrolled):
+    """
+    Crea un gráfico de dona que visualiza la proporción de estudiantes que han desertado, 
+    se han graduado y están actualmente inscritos.
+    """
     chart_colors = ["#ef4565", "#27AE60", "#3da9fc"]  # rojo, verde, azul
     background_color = "#E0E0E0"
 
@@ -81,6 +92,10 @@ def make_donut_chart(dropout, graduated, enrolled):
 
 
 def make_stacked_bar_chart(dropout, graduated, enrolled):
+    """
+    Crea un gráfico de barras apiladas que visualiza la proporción de estudiantes que han 
+    desertado, se han graduado y están actualmente inscritos.
+    """
     chart_colors = ["#ef4565", "#27AE60", "#3da9fc"]  # rojo, verde, azul
     total_students = dropout + graduated + enrolled
     data = pd.DataFrame(

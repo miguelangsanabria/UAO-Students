@@ -2,8 +2,17 @@ import pandas as pd
 from io import StringIO
 import streamlit as st
 
+"""
+Modulo de Carga y Procesamiento de Datos
+
+Este módulo proporciona funciones para cargar y preprocesar datos desde archivos CSV.
+"""
+
 
 def load_csv(uploaded_file):
+    """
+    Carga un archivo CSV en un DataFrame de pandas.
+    """
     try:
         df = pd.read_csv(uploaded_file)
         return df
@@ -13,6 +22,9 @@ def load_csv(uploaded_file):
 
 
 def preprocess_data(df):
+    """
+    Preprocesa los datos seleccionando un subconjunto de características relevantes.
+    """
     feature_columns = [
         "Application mode",
         "Application order",

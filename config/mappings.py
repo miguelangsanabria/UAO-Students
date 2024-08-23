@@ -1,3 +1,15 @@
+"""
+Diccionarios de Mapeo para Cursos y Predicciones
+
+course_mapping:
+    Este diccionario asocia códigos numéricos de cursos a nombres de cursos específicos. 
+    Se utiliza para traducir los códigos de cursos en nombres legibles en la interfaz de usuario.
+   
+prediction_mapping:
+    Este diccionario asocia códigos de predicción numéricos a categorías de predicción de estudiantes.
+    Se utiliza para traducir los códigos de predicción en descripciones legibles como "Dropout", "Enrolled" o "Graduate".
+"""
+
 course_mapping = {
     33: "Biofuel Production Technologies",
     171: "Animation and Multimedia Design",

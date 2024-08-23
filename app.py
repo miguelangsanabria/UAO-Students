@@ -1,3 +1,12 @@
+"""
+Student Dropout Prediction App
+
+Este script implementa una aplicación web utilizando Streamlit que permite subir un archivo CSV 
+con datos de estudiantes, realiza predicciones sobre el riesgo de abandono, inscripción y graduación,
+y visualiza los resultados mediante gráficos de dona y gráficos de barras apiladas. La aplicación 
+también proporciona métricas e información adicional relacionada con el desempleo, la inflación y el PIB.
+"""
+
 import streamlit as st
 from utils.data_loader import load_csv, preprocess_data
 from utils.prediction import (
